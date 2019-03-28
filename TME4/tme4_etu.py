@@ -155,7 +155,7 @@ if __name__ == "__main__":
     print(perceptron.w)
 
     step = 100
-    iters = range(1, 201, step)
+    iters = range(1, 1001, step)
     sc_train = np.zeros(len(iters))
     sc_test = np.zeros(len(iters))
     train_datay = np.ones(len(datay)) - 2 * (datay != 6)

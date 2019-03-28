@@ -93,7 +93,7 @@ plt.show()
 print("Gaussien : ", score(svm, testx, testy))
 
 # Grid search
-if False : # Mettre à True pour effectuer un grid search
+if True : # Mettre à True pour effectuer un grid search
     gammas = [0.02, 0.04, 0.06, 0.08, 0.1, 0.12]
     Cs = [500, 1000, 1500, 2000, 2500, 3000, 3500]
     indices = range(len(datay))

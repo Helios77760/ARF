@@ -4,7 +4,6 @@ import matplotlib.image as mpimg
 import pickle
 
 plt.close("all")
-plt.ion()
 parismap = mpimg.imread('data/paris-48.806-2.23--48.916-2.48.jpg')
 
 ## coordonnees GPS de la carte
@@ -35,6 +34,7 @@ for i, (k, v) in enumerate(poidata[typepoi].items()):
 show_map()
 ## alpha permet de regler la transparence, s la taille
 plt.scatter(geo_mat[:, 1], geo_mat[:, 0], alpha=0.8, s=3)
+plt.show()
 
 
 class Classifier(object):
@@ -133,7 +133,6 @@ steps = 100
 xx, yy = np.meshgrid(np.linspace(xmin, xmax, steps), np.linspace(ymin, ymax, steps))
 grid = np.c_[xx.ravel(), yy.ravel()]
 
-"""
 
 #Modèle à histogramme
 hModel = histoModel(40)
@@ -142,12 +141,14 @@ res = hModel.predict(grid).reshape(steps, steps)
 # res = np.random.random((steps, steps))
 plt.figure()
 show_map()
+
 plt.imshow(res, extent=[xmin, xmax, ymin, ymax], interpolation='none', \
            alpha=0.3, origin="lower", aspect=1.5)
 plt.colorbar()
 plt.scatter(geo_mat[:, 1], geo_mat[:, 0], alpha=0.3, s=3)
 plt.xlim(xmin, xmax)
 plt.ylim(ymin, ymax)
+plt.show()
 
 
 #Modèle des fenetres de Parzen
@@ -163,6 +164,7 @@ plt.colorbar()
 plt.scatter(geo_mat[:, 1], geo_mat[:, 0], alpha=0.3, s=3)
 plt.xlim(xmin, xmax)
 plt.ylim(ymin, ymax)
+plt.show()
 
 
 #Modèle de fenetre gaussienne
@@ -178,6 +180,7 @@ plt.colorbar()
 plt.scatter(geo_mat[:, 1], geo_mat[:, 0], alpha=0.3, s=3)
 plt.xlim(xmin, xmax)
 plt.ylim(ymin, ymax)
+plt.show()
 
 # Une discretisation faible par la technique de l'histogramme ne donne pas de densité précise. La densité devient la même dans toute une case
 # Une discrétisation trop forte crée des cases où la densité est très faible voire nulle alors que celle adjacente est très élevée,
@@ -210,8 +213,7 @@ plt.colorbar()
 plt.scatter(geo_mat[:, 1], geo_mat[:, 0], alpha=0.3, s=3)
 plt.xlim(xmin, xmax)
 plt.ylim(ymin, ymax)
-
-"""
+plt.show()
 
 #############################################
 # Predire la note en fonction de l'emplacement
