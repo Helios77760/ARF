@@ -10,13 +10,8 @@ parismap = mpimg.imread('data/paris-48.806-2.23--48.916-2.48.jpg')
 xmin, xmax = 2.23, 2.48  ## coord_x min et max
 ymin, ymax = 48.806, 48.916  ## coord_y min et max
 
-
 def show_map():
 	plt.imshow(parismap, extent=[xmin, xmax, ymin, ymax], aspect=1.5)
-
-
-## extent pour controler l'echelle du plan
-
 
 poidata = pickle.load(open("data/poi-paris.pkl", "rb"))
 ## liste des types de point of interest (poi)
@@ -35,7 +30,6 @@ show_map()
 ## alpha permet de regler la transparence, s la taille
 plt.scatter(geo_mat[:, 1], geo_mat[:, 0], alpha=0.8, s=3)
 plt.show()
-
 
 class Classifier(object):
 	""" Classe generique d'un classifieur

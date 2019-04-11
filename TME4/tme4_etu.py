@@ -126,15 +126,18 @@ if __name__ == "__main__":
     plot_frontiere(trainx, perceptron.predict, 200)
     plot_data(trainx, trainy)
     plt.show()
+
     plt.figure()
     plt.plot(perceptron.whisto[:, 0], perceptron.whisto[:, 1])
     plt.show()
+
     plt.figure()
     linx = np.array([min(trainx[:,0]), max(trainx[:, 0])])
     for h in perceptron.whisto:
         plt.plot(linx, -h[0]*linx/h[1], alpha=0.05, c="k")
     plt.ylim(min(trainx[:,1]), max(trainx[:, 1]))
     plt.show()
+
     datax, datay = load_usps("USPS_train.txt")
     #datax = np.hstack((datax, np.ones((np.shape(datax)[0], 1))))
     tx, ty = load_usps("USPS_test.txt")

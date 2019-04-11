@@ -163,6 +163,3 @@ for i in range(10):
 print("Multi classes, One vs all, score : ", np.mean(ty == np.argmax(predicts, axis=1)))
 
 #One vs one est plus rapide et plus précis, mais est un peuplus complexe à mettre en place
-
-
-
